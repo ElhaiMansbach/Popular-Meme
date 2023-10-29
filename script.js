@@ -44,24 +44,19 @@ function init(data) {
 async function ChangeMemes() {
   const memes = data;
   const set = new Set();
-  const arr = [];
   let meme;
 
   for (let i = 0; i < 3; i++) {
+    const img = document.getElementById(`img${i + 1}`);
+    const text = document.getElementById(`text${i + 1}`);
     let randomNum = Math.floor(Math.random() * memes.length);
     while (set.has(randomNum)) {
       randomNum = Math.floor(Math.random() * memes.length);
     }
     meme = memes[randomNum];
     set.add(randomNum);
-    arr.push(meme);
-  }
-
-  for (let i = 1; i <= 3; i++) {
-    const img = document.getElementById(`img${i}`);
-    const text = document.getElementById(`text${i}`);
-    img.src = arr[i - 1].url;
-    text.innerText = arr[i - 1].name;
+    img.src = meme.url;
+    text.innerText = meme.name;
   }
 }
 
@@ -79,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
   async function getPosts() {
     showLoader();
     try {
-      await new Promise(resolve => setTimeout(resolve, 5000)); 
+      await new Promise((resolve) => setTimeout(resolve, 3000));
       data = await getMemes();
       hideLoader();
       init(data);
@@ -87,7 +82,5 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("There was an error while processing your request: " + err);
     }
   }
-
   getPosts();
 });
-
