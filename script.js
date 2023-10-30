@@ -23,7 +23,6 @@ function init(data) {
     if (img.height > 1500) {
       img.classList.add("large-image");
     } else {
-      console.log(img.height, i);
       img.classList.add("small-image");
     }
     p.innerText = meme.name;
@@ -74,6 +73,7 @@ buttons.forEach((button) => {
     const slides = button
       .closest("[data-carousel]")
       .querySelector("[data-slides]");
+      console.log(slides)
 
     const activeSlide = slides.querySelector("[data-active]");
     let newIndex = [...slides.children].indexOf(activeSlide) + offset;
