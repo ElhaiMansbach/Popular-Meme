@@ -1,6 +1,5 @@
 let data;
-const changeButton = document.getElementById("changeImages");
-changeButton.addEventListener("click", ChangeMemes);
+const buttons = document.querySelectorAll("[data-carousel-button]");
 
 async function getMemes() {
   const url = "https://api.imgflip.com/get_memes";
@@ -10,58 +9,41 @@ async function getMemes() {
 }
 
 function init(data) {
-  const element = document.getElementById("imgflip");
   const memes = data;
-  const set = new Set();
 
-  for (let i = 0; i < 3; i++) {
-    let randomNum = Math.floor(Math.random() * memes.length);
-    while (set.has(randomNum)) {
-      randomNum = Math.floor(Math.random() * memes.length);
-    }
-    let meme = memes[randomNum];
-
-    const div = document.createElement("div");
+  for (let i = 0; i < 99; i++) {
+    const ul = document.getElementById("memesList");
+    const li = document.createElement("li");
     const img = document.createElement("img");
     const p = document.createElement("p");
+    let meme = memes[i];
 
-    div.id = "container";
-    img.id = `img${i + 1}`;
-    p.id = `text${i + 1}`;
-
-    div.style.width = "300px";
     img.src = meme.url;
-    img.width = "300";
-    p.innerText = meme.name;
-
-    div.appendChild(img);
-    div.appendChild(p);
-    element.appendChild(div);
-    set.add(randomNum);
-  }
-}
-
-async function ChangeMemes() {
-  const memes = data;
-  const set = new Set();
-  let meme;
-
-  for (let i = 0; i < 3; i++) {
-    const img = document.getElementById(`img${i + 1}`);
-    const text = document.getElementById(`text${i + 1}`);
-    let randomNum = Math.floor(Math.random() * memes.length);
-    while (set.has(randomNum)) {
-      randomNum = Math.floor(Math.random() * memes.length);
+    img.id = `img${i}`;
+    if (img.height > 1500) {
+      img.classList.add("large-image");
+    } else {
+      console.log(img.height, i);
+      img.classList.add("small-image");
     }
-    meme = memes[randomNum];
-    set.add(randomNum);
-    img.src = meme.url;
-    text.innerText = meme.name;
+    p.innerText = meme.name;
+    p.id = `p${i}`;
+    li.id = `li${i}`;
+    li.className = "slide";
+    li.appendChild(img);
+    li.appendChild(p);
+
+    if (i === 0) {
+      li.setAttribute("data-active", "");
+    }
+
+    ul.appendChild(li);
   }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   const loaderDiv = document.getElementById("loader");
+  const div = document.querySelector(".carousel");
 
   function showLoader() {
     loaderDiv.style.display = "block";
@@ -69,12 +51,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function hideLoader() {
     loaderDiv.style.display = "none";
+    div.style.display = "block";
   }
 
   async function getPosts() {
     showLoader();
     try {
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      await new Promise((resolve) => setTimeout(resolve, 4000));
       data = await getMemes();
       hideLoader();
       init(data);
@@ -83,4 +66,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
   getPosts();
+});
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const offset = button.dataset.carouselButton === "next" ? 1 : -1;
+    const slides = button
+      .closest("[data-carousel]")
+      .querySelector("[data-slides]");
+
+    const activeSlide = slides.querySelector("[data-active]");
+    let newIndex = [...slides.children].indexOf(activeSlide) + offset;
+    if (newIndex < 0) newIndex = slides.children.length - 1;
+    if (newIndex >= slides.children.length) newIndex = 0;
+
+    slides.children[newIndex].dataset.active = true;
+    delete activeSlide.dataset.active;
+  });
 });
