@@ -20,11 +20,18 @@ function init(data) {
 
     img.src = meme.url;
     img.id = `img${i}`;
-    if (img.height > 1500) {
-      img.classList.add("large-image");
-    } else {
-      img.classList.add("small-image");
-    }
+
+    img.addEventListener("load", function () {
+      console.log("Width:", img.naturalWidth);
+      console.log("Height:", img.naturalHeight);
+
+      if (img.naturalHeight > 1300) {
+        img.classList.add("large-image");
+      } else {
+        img.classList.add("small-image");
+      }
+    });
+
     p.innerText = meme.name;
     p.id = `p${i}`;
     li.id = `li${i}`;

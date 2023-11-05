@@ -30,6 +30,7 @@ h3 {
   position: absolute;
   top: 0;
   left: 5%;
+  text-shadow: 0px 0px 10px #000;
 }
 
 .progress .loader-progress {
@@ -113,4 +114,39 @@ h3 {
 
 .carousel-button.next {
   right: 1rem;
+}
+
+.emoji{
+  width: 130px;
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+}
+
+@keyframes moveAndScale {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(0, -400px) scale(1);
+  }
+  50% {
+    transform: translate(0, 0) scale(1);
+  }
+  75% {
+    transform: translate(-800px, 0) scale(1);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+.emoji:hover {
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px #000;
+}
+.emoji:active {
+  animation: moveAndScale 6s ease-in-out infinite;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px #000;
 }
