@@ -231,7 +231,7 @@ li > img {
 
   .slide p {
     font-size: 1.4rem;
-    bottom: 100px;
+    bottom: 20%;
   }
 
   .slide p:hover {
@@ -260,7 +260,7 @@ li > img {
   }
 
   .carousel-button {
-    padding: 0.5rem 0.8rem 0.8rem 0.8rem;
+    padding: 0 0.4rem 0.4rem 0.4rem;
     font-size: 2rem;
   }
 
@@ -274,15 +274,15 @@ li > img {
     }
 
     25% {
-      transform: translate(0, -92vh);
+      transform: translate(0, -80vh);
     }
 
     50% {
-      transform: translate(-81vw, -92vh);
+      transform: translate(-85vw, -80vh);
     }
 
     75% {
-      transform: translate(-81vw, 0);
+      transform: translate(-85vw, 0);
     }
 
     100% {
