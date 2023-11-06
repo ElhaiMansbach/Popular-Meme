@@ -131,8 +131,8 @@ li > img {
 .emoji {
   width: 110px;
   position: absolute;
-  bottom: 5px;
-  right: 8px;
+  bottom: 0;
+  right: 0;
 }
 
 @keyframes moveInSquare {
