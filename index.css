@@ -20,7 +20,7 @@ body {
 }
 
 #loader {
-  margin-top: 30%;
+  margin: 50vh auto 0 auto;
 }
 
 h3 {
@@ -196,9 +196,6 @@ li > img {
   h3 {
     font-size: 2.5rem;
   }
-  #loader {
-    margin-top: 40%;
-  }
 
   /* @keyframes moveInSquare {
     0% {
@@ -225,8 +222,8 @@ li > img {
 
 /* ---------------Media query for small screens ------------------ */
 @media (max-width: 495px) {
-  body{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  body {
+    font-family: Georgia, "Times New Roman", Times, serif;
   }
   .emoji {
     width: 50px;
@@ -267,9 +264,6 @@ li > img {
     font-size: 2rem;
   }
 
-  #loader {
-    margin-top: 120%;
-  }
 
   @keyframes moveInSquare {
     0% {
