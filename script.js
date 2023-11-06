@@ -25,8 +25,10 @@ function init(data) {
       // console.log("Width:", img.naturalWidth);
       // console.log("Height:", img.naturalHeight);
 
-      if (img.naturalHeight > 1300) {
+      if (img.naturalHeight > 1200) {
         img.classList.add("large-image");
+      } else if (img.naturalHeight > 400) {
+        img.classList.add("medium-image");
       } else {
         img.classList.add("small-image");
       }
