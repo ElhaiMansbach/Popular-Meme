@@ -225,6 +225,9 @@ li > img {
 
 /* ---------------Media query for small screens ------------------ */
 @media (max-width: 495px) {
+  body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
   .emoji {
     width: 60px;
   }
