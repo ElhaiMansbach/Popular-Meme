@@ -227,22 +227,20 @@ li > img {
   }
 
   .emoji {
-    width: 130px;
-    /* position: absolute; */
-    top: 15vh;
+    width: 0px;
+    /* top: 15vh;
     right: 35vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 3s;
+    transition: transform 3s; */
   }
 
-  .emoji:active {
+  /* .emoji:active {
     transform: rotate(360deg);
     animation: none;
     box-shadow: 0px 0px 10px #000;
-
-  }
+  } */
 
   .slide p {
     font-size: 1.3rem;
