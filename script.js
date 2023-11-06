@@ -22,8 +22,6 @@ function init(data) {
     img.id = `img${i}`;
 
     img.addEventListener("load", function () {
-      // console.log("Width:", img.naturalWidth);
-      // console.log("Height:", img.naturalHeight);
 
       if (img.naturalHeight > 1200) {
         img.classList.add("large-image");
