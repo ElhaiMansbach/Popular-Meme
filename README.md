@@ -9,6 +9,7 @@ This simple web application allows you to view a collection of popular memes in 
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Media Queries](#media-queries)
+- [Languages Used](#languages-used)
 
 ## Getting Started
 
@@ -47,5 +48,10 @@ The project is designed to be responsive to different screen sizes, ensuring an 
 - Further adjustments to emoji and font sizes.
 - Slightly different image sizes for smaller screens.
 - Additional layout adjustments to ensure a pleasant experience on small screens.
+
+## Languages Used
+- JavaScript
+- HTML
+- CSS 
 
 Enjoy your memes!
